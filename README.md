@@ -46,7 +46,7 @@ This release open-sources **LIBERO training and evaluation code** built on **Ï€â
 ## Real-World Demo
 
 <p align="center">
-  <img src="video/demo.gif" alt="EagleVLA real-world comparison demo" width="720" />
+  <img src="video/eaglevla-demo.gif" alt="EagleVLA real-world comparison demo" width="720" />
 </p>
 
 <p align="center">
