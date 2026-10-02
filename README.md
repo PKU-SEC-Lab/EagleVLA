@@ -5,16 +5,16 @@
     <a href="https://www.tlaic.ac.cn/"><img src="media/tlaic-wordmark.svg" alt="Beijing Tongminghu Information Technology Application Innovation Center" width="190" /></a>
   </p>
 
-  <h1>Jetson-PI</h1>
+  <h1>EagleVLA</h1>
   <p><strong>Towards Onboard Real-Time Robot Control via Foresight-Aligned Asynchronous Inference</strong></p>
   <p>Foresight-aligned asynchronous inference for responsive, real-time Vision-Language-Action control on edge robots.</p>
 
   <p>
     <a href="https://arxiv.org/abs/2607.12659"><img src="https://img.shields.io/badge/arXiv-2607.12659-b31b1b.svg" alt="arXiv" /></a>
     <a href="https://www.corl.org/"><img src="https://img.shields.io/badge/CoRL-2026_Accepted-6f42c1.svg" alt="Accepted at CoRL 2026" /></a>
-    <a href="https://github.com/PKU-SEC-Lab/Jetson-PI"><img src="https://img.shields.io/badge/Code-Jetson--PI-35b8a9.svg" alt="Jetson-PI code" /></a>
+    <a href="https://github.com/PKU-SEC-Lab/EagleVLA"><img src="https://img.shields.io/badge/Code-EagleVLA-35b8a9.svg" alt="EagleVLA code" /></a>
     <a href="https://www.modelscope.cn/models/zebinyang/Jetson-PI-pi05"><img src="https://img.shields.io/badge/Model-Jetson--PI--pi05-624AFF.svg" alt="Jetson-PI pi05 model" /></a>
-    <a href="https://github.com/PKU-SEC-Lab/Jetson-PI-Edge"><img src="https://img.shields.io/badge/Runtime-Jetson--PI--Edge-3578c8.svg" alt="Jetson-PI-Edge runtime" /></a>
+    <a href="https://github.com/PKU-SEC-Lab/EagleVLA-Edge"><img src="https://img.shields.io/badge/Runtime-EagleVLA--Edge-3578c8.svg" alt="EagleVLA-Edge runtime" /></a>
     <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache--2.0-f28c45.svg" alt="Apache-2.0 license" /></a>
   </p>
 
@@ -24,7 +24,7 @@
     <a href="#results-on-libero-π₀₅">Results</a> ·
     <a href="#training">Training</a> ·
     <a href="#evaluation">Evaluation</a> ·
-    <a href="https://github.com/PKU-SEC-Lab/Jetson-PI-Edge">Edge Runtime</a> ·
+    <a href="https://github.com/PKU-SEC-Lab/EagleVLA-Edge">Edge Runtime</a> ·
     <a href="#citation">Citation</a>
   </p>
 </div>
@@ -35,13 +35,13 @@
 
 This repository is the official implementation of:
 
-> **[Jetson-PI: Towards Onboard Real-Time Robot Control via Foresight-Aligned Asynchronous Inference](https://arxiv.org/abs/2607.12659)**<br>
+> **[EagleVLA: Towards Onboard Real-Time Robot Control via Foresight-Aligned Asynchronous Inference](https://arxiv.org/abs/2607.12659)**<br>
 > Zebin Yang, Qi Wang, Yunhe Wang, Xiurui Guo, Bo Yu, Shaoshan Liu, Jiafeng Xu, Hao Dong, and Meng Li.<br>
 > Accepted at the Conference on Robot Learning (CoRL), 2026.
 
-Vision-Language-Action (VLA) models have achieved impressive performance on diverse embodied tasks, yet deploying them on low-power onboard devices such as NVIDIA Jetson Orin remains challenging due to high inference latency and limited compute. Asynchronous inference can partially mask this latency, but it introduces **prediction–execution misalignment** and **long reaction time**. Jetson-PI addresses both through **Foresight-Aligned Asynchronous Correction (FAAC)**: we train a lightweight **future correction module** that predicts **future environment representation** conditioned on committed actions, enabling the **action expert** to directly predict actions from the future time step; we further introduce **confidence-based scheduling optimization** that adaptively balances VLM and action expert invocations.
+Vision-Language-Action (VLA) models have achieved impressive performance on diverse embodied tasks, yet deploying them on low-power onboard devices such as NVIDIA Jetson Orin remains challenging due to high inference latency and limited compute. Asynchronous inference can partially mask this latency, but it introduces **prediction–execution misalignment** and **long reaction time**. EagleVLA addresses both through **Foresight-Aligned Asynchronous Correction (FAAC)**: we train a lightweight **future correction module** that predicts **future environment representation** conditioned on committed actions, enabling the **action expert** to directly predict actions from the future time step; we further introduce **confidence-based scheduling optimization** that adaptively balances VLM and action expert invocations.
 
-This release open-sources **LIBERO training and evaluation code** built on **π₀.₅**. The accelerated **llama.cpp**-based onboard inference engine is available in [PKU-SEC-Lab/Jetson-PI-Edge](https://github.com/PKU-SEC-Lab/Jetson-PI-Edge).
+This release open-sources **LIBERO training and evaluation code** built on **π₀.₅**. The accelerated **llama.cpp**-based onboard inference engine is available in [PKU-SEC-Lab/EagleVLA-Edge](https://github.com/PKU-SEC-Lab/EagleVLA-Edge).
 
 ## Real-world Demo
 
@@ -325,11 +325,11 @@ See `LICENSE` and `LICENSE_GEMMA.txt`. LIBERO and upstream openpi components ret
 
 ## Citation
 
-If Jetson-PI helps your research, please cite our paper:
+If EagleVLA helps your research, please cite our paper:
 
 ```bibtex
-@article{yang2026jetson,
-  title={Jetson-PI: Towards Onboard Real-Time Robot Control via Foresight-Aligned Asynchronous Inference},
+@article{yang2026eaglevla,
+  title={EagleVLA: Towards Onboard Real-Time Robot Control via Foresight-Aligned Asynchronous Inference},
   author={Yang, Zebin and Wang, Qi and Wang, Yunhe and Guo, Xiurui and Yu, Bo and Liu, Shaoshan and Xu, Jiafeng and Dong, Hao and Li, Meng},
   journal={arXiv preprint arXiv:2607.12659},
   year={2026}
@@ -338,4 +338,4 @@ If Jetson-PI helps your research, please cite our paper:
 
 ## Acknowledgments
 
-Jetson-PI builds on [OpenPI](https://github.com/Physical-Intelligence/openpi) and the π model family from [Physical Intelligence](https://www.physicalintelligence.company/), and uses [LIBERO](https://github.com/Lifelong-Robot-Learning/LIBERO) for simulation evaluation. The onboard inference engine is developed in [Jetson-PI-Edge](https://github.com/PKU-SEC-Lab/Jetson-PI-Edge), based on [llama.cpp](https://github.com/ggml-org/llama.cpp), with integration support for [FlashRT](https://github.com/flashrt-project/FlashRT).
+EagleVLA builds on [OpenPI](https://github.com/Physical-Intelligence/openpi) and the π model family from [Physical Intelligence](https://www.physicalintelligence.company/), and uses [LIBERO](https://github.com/Lifelong-Robot-Learning/LIBERO) for simulation evaluation. The onboard inference engine is developed in [EagleVLA-Edge](https://github.com/PKU-SEC-Lab/EagleVLA-Edge), based on [llama.cpp](https://github.com/ggml-org/llama.cpp), with integration support for [FlashRT](https://github.com/flashrt-project/FlashRT).
