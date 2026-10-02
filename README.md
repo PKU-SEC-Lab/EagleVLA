@@ -13,7 +13,7 @@
     <a href="https://arxiv.org/abs/2607.12659"><img src="https://img.shields.io/badge/arXiv-2607.12659-b31b1b.svg" alt="arXiv" /></a>
     <a href="https://www.corl.org/"><img src="https://img.shields.io/badge/CoRL-2026_Accepted-6f42c1.svg" alt="Accepted at CoRL 2026" /></a>
     <a href="https://github.com/PKU-SEC-Lab/EagleVLA"><img src="https://img.shields.io/badge/Code-EagleVLA-35b8a9.svg" alt="EagleVLA code" /></a>
-    <a href="https://www.modelscope.cn/models/zebinyang/Jetson-PI-pi05"><img src="https://img.shields.io/badge/Model-Jetson--PI--pi05-624AFF.svg" alt="Jetson-PI pi05 model" /></a>
+    <a href="https://www.modelscope.cn/models/zebinyang/EagleVLA-pi05"><img src="https://img.shields.io/badge/Model-EagleVLA--pi05-624AFF.svg" alt="EagleVLA pi05 model" /></a>
     <a href="https://github.com/PKU-SEC-Lab/EagleVLA-Edge"><img src="https://img.shields.io/badge/Runtime-EagleVLA--Edge-3578c8.svg" alt="EagleVLA-Edge runtime" /></a>
     <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache--2.0-f28c45.svg" alt="Apache-2.0 license" /></a>
   </p>
@@ -169,14 +169,14 @@ Pretrained **π₀.₅-LIBERO** + **future correction module** (LIBERO-spatial, 
 
 **Hugging Face: [diantoudefengshan/Jetson-PI-pi05](https://huggingface.co/diantoudefengshan/Jetson-PI-pi05)**
 
-**ModelScope: [zebinyang/Jetson-PI-pi05](https://www.modelscope.cn/models/zebinyang/Jetson-PI-pi05)**
+**ModelScope: [zebinyang/EagleVLA-pi05](https://www.modelscope.cn/models/zebinyang/EagleVLA-pi05)**
 
 
 ```bash
 pip install modelscope
-python -c "from modelscope import snapshot_download; snapshot_download('zebinyang/Jetson-PI-pi05', local_dir='./checkpoints/jetson-pi-pi05')"
-export PI0_CHECKPOINT=./checkpoints/jetson-pi-pi05/pi05_libero
-export WM=./checkpoints/jetson-pi-pi05/future_correction_module
+python -c "from modelscope import snapshot_download; snapshot_download('zebinyang/EagleVLA-pi05', local_dir='./checkpoints/eaglevla-pi05')"
+export PI0_CHECKPOINT=./checkpoints/eaglevla-pi05/pi05_libero
+export WM=./checkpoints/eaglevla-pi05/future_correction_module
 ```
 
 The bundle contains two separate directories (`pi05_libero/`, `future_correction_module/`); do not merge their `params/` trees.
@@ -185,8 +185,8 @@ Set these before training or evaluation:
 
 | Variable | Description |
 |----------|-------------|
-| `PI0_CHECKPOINT` | π₀.₅-LIBERO weights (local dir with `params/`). Use `pi05_libero/` from [ModelScope](https://www.modelscope.cn/models/zebinyang/Jetson-PI-pi05), or download upstream: `gs://openpi-assets/checkpoints/pi05_libero` |
-| `WM` | **Eval only.** Path to trained future correction module dir (must contain `params/`). Use `future_correction_module/` from [ModelScope](https://www.modelscope.cn/models/zebinyang/Jetson-PI-pi05) |
+| `PI0_CHECKPOINT` | π₀.₅-LIBERO weights (local dir with `params/`). Use `pi05_libero/` from [ModelScope](https://www.modelscope.cn/models/zebinyang/EagleVLA-pi05), or download upstream: `gs://openpi-assets/checkpoints/pi05_libero` |
+| `WM` | **Eval only.** Path to trained future correction module dir (must contain `params/`). Use `future_correction_module/` from [ModelScope](https://www.modelscope.cn/models/zebinyang/EagleVLA-pi05) |
 | `OPENPI_LIBERO_LOCAL_DATASET_DIR` | LeRobot LIBERO dataset root (parquet + `meta/tasks.jsonl`) |
 | `PY` | Python for **training** (JAX venv) |
 | `PY_SERVER` | Python for **serve_policy** (must have JAX; often same as `PY`) |
